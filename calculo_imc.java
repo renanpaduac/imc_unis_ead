@@ -28,7 +28,9 @@ public class MassaCorp1 {
             altura = Double.parseDouble(JOptionPane.showInputDialog("Digite sua Altura em Metros!"));
 
             resultado = JOptionPane.showConfirmDialog(null, "Peso: " + peso + " Kg" + "\n" + "Altura: " + altura + " m" + "\n" + "\n" + "Os dados digitados estão Corretos? ");
-        } while (resultado != JOptionPane.YES_OPTION);
+           } 
+        
+        while (resultado != JOptionPane.YES_OPTION);
 
         imc = peso / (altura * altura);
 

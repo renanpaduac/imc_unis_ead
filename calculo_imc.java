@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package massacorp;
+package massacorp1;
 
 import javax.swing.JOptionPane;
 
@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  *
  * @author rpcarvalho
  */
-public class MassaCorp {
+public class MassaCorp1 {
 
     /**
      * @param args the command line arguments
@@ -19,15 +19,18 @@ public class MassaCorp {
     public static void main(String[] args) {
 
         double peso;
-        peso = Double.parseDouble(JOptionPane.showInputDialog("Digite seu Peso em KG!"));
-
         double altura;
-        altura = Double.parseDouble(JOptionPane.showInputDialog("Digite sua Altura em Metros!"));
-
         double imc;
-        imc = peso / (altura * altura);
+        int resultado;
 
-        JOptionPane.showMessageDialog(null, "O seu Peso digitado foi: " + peso + "Kg" + "\n" + "A sua altura digitada foi: " + altura + "m" + "\n" + "O Cáculo do seu IMC foi: " + imc);
+        do {
+            peso = Double.parseDouble(JOptionPane.showInputDialog("Digite seu Peso em KG!"));
+            altura = Double.parseDouble(JOptionPane.showInputDialog("Digite sua Altura em Metros!"));
+
+            resultado = JOptionPane.showConfirmDialog(null, "Peso: " + peso + " Kg" + "\n" + "Altura: " + altura + " m" + "\n" + "\n" + "Os dados digitados estão Corretos? ");
+        } while (resultado != JOptionPane.YES_OPTION);
+
+        imc = peso / (altura * altura);
 
         if (imc <= 17) {
             JOptionPane.showMessageDialog(null, "Seu IMC é: " + imc + "\n" + "Você está Muito Abaixo do Peso!");
@@ -41,8 +44,9 @@ public class MassaCorp {
             JOptionPane.showMessageDialog(null, "Seu IMC é: " + imc + "\n" + "Seu IMC está em Obesidade I!");
         } else if (imc > 35 && imc <= 39.999999999) {
             JOptionPane.showMessageDialog(null, "Seu IMC é: " + imc + "\n" + "Seu IMC está em Obesidade II (severa)");
-        } else { 
+        } else {
             JOptionPane.showMessageDialog(null, "Seu IMC é: " + imc + "\n" + "Seu IMC está em Obesidade III (mórbida)");
-    }
+        }
+
     }
 }
